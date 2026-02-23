@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Results — ReconNeCT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    /* ── TIMELINE INTRO ── */
+    .project-timeline {
+      display: flex; gap: 0; border: 1px solid var(--border);
+      margin-bottom: 5rem;
+    }
+    .timeline-block {
+      flex: 1; padding: 1.5rem 1.8rem;
+      border-right: 1px solid var(--border);
+      background: var(--card); position: relative;
+    }
+    .timeline-block:last-child { border-right: none; }
+    .timeline-block.current { background: rgba(91,110,245,0.07); border-color: rgba(91,110,245,0.3); }
+    .tl-year {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .tl-label { font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .tl-desc  { font-size: 0.8rem; color: var(--muted); }
+    .tl-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border: 1px solid var(--accent2); color: var(--accent2);
+    }
+
+    /* ── HIGHLIGHT NUMBERS ── */
+    .impact-numbers {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      margin-bottom: 5rem;
+    }
+    .impact-num-card {
+      background: var(--deep); padding: 2.2rem 1.8rem; text-align: center;
+      position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .impact-num-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .impact-num-card:hover { background: #0d1228; }
+    .impact-num-card:hover::before { transform: scaleX(1); }
+    .big-num {
+      font-size: 3rem; font-weight: 800; color: var(--white);
+      letter-spacing: -0.04em; line-height: 1; display: block;
+    }
+    .big-num em { color: var(--accent); font-style: normal; }
+    .big-label {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-top: 0.6rem;
+    }
+
+    /* ── ACHIEVEMENT CARDS ── */
+    .achievements { display: flex; flex-direction: column; gap: 1px; margin-bottom: 5rem; }
+
+    .achievement {
+      display: grid; grid-template-columns: 80px 1fr auto;
+      align-items: start; gap: 2rem;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 2rem 2rem; position: relative;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .achievement::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--accent2);
+      transform: scaleY(0); transform-origin: top; transition: transform 0.35s;
+    }
+    .achievement:hover { border-color: rgba(167,139,250,0.35); background: #0f1530; }
+    .achievement:hover::before { transform: scaleY(1); }
+
+    .ach-icon {
+      width: 52px; height: 52px; border-radius: 0;
+      background: rgba(91,110,245,0.1); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent2); flex-shrink: 0;
+    }
+    .ach-icon svg { width: 24px; height: 24px; }
+
+    .ach-body h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; }
+    .ach-body p  { font-size: 0.88rem; line-height: 1.65; }
+    .ach-body .ach-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+    .ach-tag {
+      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+    }
+
+    .ach-link {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap; align-self: center;
+      transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .ach-link:hover { color: var(--accent2); }
+    .ach-link::after { content: '↗'; }
+
+    /* ── FUTURE SECTION ── */
+    .future-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+    .future-card {
+      background: var(--card); padding: 2rem;
+      position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .future-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .future-card:hover { background: #0f1530; }
+    .future-card:hover::before { transform: scaleX(1); }
+    .future-card h3 { color: var(--white); margin-bottom: 0.7rem; font-size: 1rem; }
+    .future-card p  { font-size: 0.87rem; }
+
+    /* ── CONTACT CTA ── */
+    .contact-cta-box {
+      border: 1px solid var(--border); background: var(--card);
+      padding: 3rem; display: grid;
+      grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .contact-cta-box::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .contact-cta-box h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .contact-cta-box p  { font-size: 0.9rem; max-width: 520px; }
+
+    @media (max-width: 900px) {
+      .project-timeline { flex-direction: column; }
+      .timeline-block { border-right: none; border-bottom: 1px solid var(--border); }
+      .impact-numbers { grid-template-columns: repeat(2, 1fr); }
+      .achievement { grid-template-columns: 1fr; gap: 1rem; }
+      .ach-icon { display: none; }
+      .ach-link { align-self: flex-start; }
+      .future-grid { grid-template-columns: 1fr; }
+      .contact-cta-box { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .impact-numbers { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <p class="section-tag">Legacy & Impact</p>
+    <h1>Key Results</h1>
+  </div>
+
+  <div class="content-area">
+
+    <!-- PROJECT TIMELINE -->
+    <p class="section-tag reveal">Project Timeline</p>
+    <div class="project-timeline reveal">
+      <div class="timeline-block">
+        <div class="tl-year">2017</div>
+        <div class="tl-label">Project Launch</div>
+        <div class="tl-desc">FAPESP / Serrapilheira funding secured. Core team assembled at ICMC–USP.</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-year">2018–2020</div>
+        <div class="tl-label">Theory Development</div>
+        <div class="tl-desc">Mathematical foundations for emergent behavior in complex networks established. First major publications.</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-year">2020–2022</div>
+        <div class="tl-label">Real-World Application</div>
+        <div class="tl-desc">COVID-19 modelling contributions — Robot Dance platform, PNAS vaccine paper, Lancet study.</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-year">2022–2024</div>
+        <div class="tl-label">Consolidation</div>
+        <div class="tl-desc">Nature Communications results, international collaborations, student mentoring.</div>
+      </div>
+      <div class="timeline-block current">
+        <div class="tl-badge">Now</div>
+        <div class="tl-year">2025–</div>
+        <div class="tl-label">Legacy Phase</div>
+        <div class="tl-desc">Funding cycle concluding. Open to new partnerships, grants, and continuation.</div>
+      </div>
+    </div>
+
+    <!-- IMPACT NUMBERS -->
+    <p class="section-tag reveal">Impact at a Glance</p>
+    <div class="impact-numbers">
+      <div class="impact-num-card reveal">
+        <span class="big-num">80<em>+</em></span>
+        <span class="big-label">Publications</span>
+      </div>
+      <div class="impact-num-card reveal">
+        <span class="big-num">24<em>+</em></span>
+        <span class="big-label">Researchers</span>
+      </div>
+      <div class="impact-num-card reveal">
+        <span class="big-num">5<em></em></span>
+        <span class="big-label">Nature / PNAS papers</span>
+      </div>
+      <div class="impact-num-card reveal">
+        <span class="big-num">12<em>+</em></span>
+        <span class="big-label">International Partners</span>
+      </div>
+    </div>
+
+    <!-- KEY ACHIEVEMENTS -->
+    <p class="section-tag reveal">Highlights</p>
+    <h2 class="reveal" style="margin-bottom:2rem;">What We Accomplished</h2>
+    <div class="achievements">
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>A New Mathematical Theory for Complex Networks</h3>
+          <p>Developed the first low-dimensional theory describing emergent behavior in complex networks of nonlinear dynamical systems over finite time scales — filling a critical gap that standard tools could not address. Published in <em>Physical Review X</em> (2020).</p>
+          <div class="ach-tags">
+            <span class="ach-tag">Theory</span>
+            <span class="ach-tag">Network Science</span>
+            <span class="ach-tag">Physical Review X</span>
+          </div>
+        </div>
+        <a class="ach-link" href="https://sites.icmc.usp.br/tiago/index.html/assets/physrevx.10.021047.pdf" target="_blank">Read paper</a>
+      </div>
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>Predicting Critical Transitions from Data</h3>
+          <p>Demonstrated for the first time that critical transitions in complex networks can be predicted directly from data — without needing to know the underlying equations. Opens the door to early-warning systems for ecological collapses, financial crises, and brain seizures.</p>
+          <div class="ach-tags">
+            <span class="ach-tag">Critical Transitions</span>
+            <span class="ach-tag">Data-Driven</span>
+            <span class="ach-tag">Early Warning</span>
+          </div>
+        </div>
+        <a class="ach-link" href="publications.html">Publications</a>
+      </div>
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>COVID-19: Robot Dance & Vaccine Strategy</h3>
+          <p>Applied network theory to the COVID-19 pandemic. The Robot Dance optimization platform guided city-level intervention policies across Brazil. A PNAS paper on delayed vaccine doses directly influenced national vaccination strategies, and a Lancet study provided key epidemiological data for Rio de Janeiro.</p>
+          <div class="ach-tags">
+            <span class="ach-tag">COVID-19</span>
+            <span class="ach-tag">PNAS</span>
+            <span class="ach-tag">The Lancet</span>
+            <span class="ach-tag">Public Health</span>
+          </div>
+        </div>
+        <a class="ach-link" href="https://www.pnas.org/doi/full/10.1073/pnas.2104640118" target="_blank">Read paper</a>
+      </div>
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="3" cy="6" r="2"/><circle cx="21" cy="6" r="2"/>
+            <circle cx="3" cy="18" r="2"/><circle cx="21" cy="18" r="2"/>
+            <path d="M5 6h4M15 6h4M5 18h4M15 18h4"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>Emergent Hypernetworks — Nature Communications</h3>
+          <p>Discovered that weakly coupled oscillators spontaneously form hypernetworks — higher-order interaction structures that emerge from the dynamics themselves. Published in <em>Nature Communications</em> (2022), with a second Nature Communications paper on coherence resonance in influencer networks (2021).</p>
+          <div class="ach-tags">
+            <span class="ach-tag">Nature Communications</span>
+            <span class="ach-tag">Hypernetworks</span>
+            <span class="ach-tag">Oscillators</span>
+          </div>
+        </div>
+        <a class="ach-link" href="https://www.nature.com/articles/s41467-022-32282-4" target="_blank">Read paper</a>
+      </div>
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>The Royal Society Prize & International Recognition</h3>
+          <p>PI Tiago Pereira received the prestigious Newton Advanced Fellowship from The Royal Society, recognising the project's contributions to mathematical sciences. The group also received the Serrapilheira Institute grant, one of the most competitive private science grants in Brazil.</p>
+          <div class="ach-tags">
+            <span class="ach-tag">The Royal Society</span>
+            <span class="ach-tag">Serrapilheira</span>
+            <span class="ach-tag">Awards</span>
+          </div>
+        </div>
+        <a class="ach-link" href="people.html">Team</a>
+      </div>
+
+      <div class="achievement reveal">
+        <div class="ach-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="ach-body">
+          <h3>Training the Next Generation</h3>
+          <p>Mentored over 20 PhD students, postdocs, and visiting researchers from Brazil and abroad. Alumni are now active at institutions including Imperial College London, KHAS University, and across Brazilian universities. Reading groups, workshops and seminars ran continuously from 2018 to 2024.</p>
+          <div class="ach-tags">
+            <span class="ach-tag">Training</span>
+            <span class="ach-tag">PhD Students</span>
+            <span class="ach-tag">Workshops</span>
+          </div>
+        </div>
+        <a class="ach-link" href="people.html">People</a>
+      </div>
+
+    </div>
+
+    <!-- FUTURE / CONTINUATION -->
+    <hr class="divider">
+    <p class="section-tag reveal">What Comes Next</p>
+    <h2 class="reveal" style="margin-bottom:2rem;">Open Directions</h2>
+    <div class="future-grid">
+      <div class="future-card reveal">
+        <h3>Sparse Network Reconstruction</h3>
+        <p>The 2023 arXiv paper on robust reconstruction of sparse network dynamics opens a clear avenue for a new funded project applying these methods to real-world biological and infrastructure networks.</p>
+      </div>
+      <div class="future-card reveal">
+        <h3>AI + Dynamical Systems</h3>
+        <p>Combining the group's data-driven reconstruction methods with modern machine learning frameworks — particularly for predicting tipping points in climate and ecological systems.</p>
+      </div>
+      <div class="future-card reveal">
+        <h3>Smart Cities & Infrastructure</h3>
+        <p>Applying the critical transition theory to urban sensor networks. The mathematical tools are ready; what's needed is a partnership with city-scale data providers and applied funding.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT CTA -->
+    <div class="contact-cta-box reveal">
+      <div>
+        <h3>Interested in continuing this work?</h3>
+        <p>We are actively seeking funding partners, research collaborators, and institutions interested in supporting the next phase of the ReconNeCT agenda. Whether you are a funding agency, a university, or an industry partner — reach out.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.8rem;">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="publications.html" class="btn btn-outline">Browse Publications</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
