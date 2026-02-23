@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — ReconNeCT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-body { max-width: 740px; }
+    .about-body p { margin-bottom: 1.4rem; font-size: 1rem; }
+    .about-body ol { margin: 1.5rem 0 1.5rem 1.5rem; }
+    .about-body li { color: var(--muted); line-height: 1.75; margin-bottom: 0.8rem; }
+    .quote-box {
+      border-left: 3px solid var(--accent); padding: 1.2rem 1.8rem;
+      background: var(--card); margin: 2.5rem 0;
+      font-size: 1.05rem; color: var(--white); font-style: italic;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+    .two-col .card h3 { color: var(--white); margin-bottom: 0.6rem; }
+    .two-col .card p  { font-size: 0.9rem; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <p class="section-tag">The Project</p>
+    <h1>ReconNeCT</h1>
+  </div>
+
+  <div class="content-area">
+    <div class="about-body">
+
+      <div class="quote-box reveal">
+        "Join us in the tour to uncover the rules of complex systems from data and to predict the sudden changes of their behavior."
+      </div>
+
+      <p class="reveal">We aim at reconstructing the connectivity networks from data and predicting the sudden changes of their behavior — developing strategies to <strong>avoid malfunctioning</strong> in complex systems.</p>
+
+      <p class="reveal">The first step is to develop a mathematical theory to describe emergent behavior in complex networks of nonlinear dynamical systems. These complex systems have wild global behavior making relevant phenomena such as collective dynamics take place over finite time scales — and cannot be tackled by standard tools.</p>
+
+      <p class="reveal">The ReconNeCT Project fills this gap by developing a theory for emergent phenomena in complex networks. This theory opens enormous possibilities such as predicting critical transitions and reconstructing network dynamics from data.</p>
+
+      <hr class="divider">
+
+      <h3 style="color:var(--white); margin-bottom:1.2rem;" class="reveal">Two Core Objectives</h3>
+      <ol>
+        <li class="reveal">For each connectivity level, this theory will provide a <strong>low-dimensional description</strong> over finite time scales — allowing for a description of collective phenomena in terms of the network structure.</li>
+        <li class="reveal">The above objectives provide effect models over connectivity layers, offering a way to <strong>reverse engineer the problem</strong> and obtain a model from data — opening the possibility to predict critical transitions from data which would be impossible otherwise.</li>
+      </ol>
+
+      <p class="reveal" style="margin-top:1.5rem;">We apply this theory to <strong>neuron networks</strong> and <strong>smart cities sensor data</strong> to predict critical transitions and help preventing catastrophes.</p>
+
+      <hr class="divider">
+      <div class="reveal">
+        <a href="publications.html" class="btn btn-primary" style="margin-right:1rem;">Browse Publications</a>
+        <a href="people.html" class="btn btn-outline">Meet the Team</a>
+      </div>
+
+    </div>
+
+    <!-- HIGHLIGHT BAND -->
+  </div>
+
+  <div class="highlight-band">
+    <div class="highlight-inner">
+      <h2>A theory for emergent phenomena.</h2>
+      <div class="reveal">
+        <p>From neuron networks to smart cities, ReconNeCT develops the mathematical foundation to understand, model, and predict the behavior of the most complex systems we know.</p>
+        <a href="activities.html" class="btn-light">See Our Activities</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
