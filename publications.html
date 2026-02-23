@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications — ReconNeCT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .year-label {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 0.8rem;
+      margin: 3rem 0 1rem;
+    }
+    .year-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .pub-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .pub-item {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.4rem 1.8rem; position: relative;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .pub-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--accent);
+      transform: scaleY(0); transform-origin: top; transition: transform 0.3s;
+    }
+    .pub-item:hover { border-color: rgba(91,110,245,0.4); background: #0f1530; }
+    .pub-item:hover::before { transform: scaleY(1); }
+
+    .pub-title { color: var(--white); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; line-height: 1.45; }
+    .pub-title a { transition: color 0.2s; }
+    .pub-title a:hover { color: var(--accent2); }
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .pub-journal {
+      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      color: var(--accent); letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <p class="section-tag">Research Output</p>
+    <h1>Publications</h1>
+  </div>
+
+  <div class="content-area">
+
+    <div class="year-label reveal">2024</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s00332-024-10034-6" target="_blank">Cycle-Star Motifs: Network Response to Link Modifications</a></div>
+        <div class="pub-authors">Sajjad Bakrani, Narcicegi Kiran, Deniz Eroglu, Tiago Pereira</div>
+        <div class="pub-journal">Journal of Nonlinear Science (2024)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://iopscience.iop.org/article/10.1088/1361-6544/ad2f5f/pdf" target="_blank">Continua and persistence of periodic orbits in ensembles of oscillators</a></div>
+        <div class="pub-authors">Robert Ronge, Michael A Zaks, Tiago Pereira</div>
+        <div class="pub-journal">Nonlinearity (2024)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2023</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://pubs.aip.org/aip/cha/article/33/9/091103/2911039" target="_blank">Emergence of chaotic cluster synchronization in heterogeneous networks</a></div>
+        <div class="pub-authors">Rodrigo M Corder, Zheng Bian, Tiago Pereira, Antonio Montalbán</div>
+        <div class="pub-journal">Chaos: An Interdisciplinary Journal of Nonlinear Science (2023)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://arxiv.org/pdf/2308.06433" target="_blank">Robust reconstruction of sparse network dynamics</a></div>
+        <div class="pub-authors">Tiago Pereira, Edmilson Roque dos Santos, Sebastian van Strien</div>
+        <div class="pub-journal">arXiv preprint (2023)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s00220-023-04699-5" target="_blank">Chaotic behavior in diffusively coupled systems</a></div>
+        <div class="pub-authors">Eddie Nijholt, Tiago Pereira, Fernando C Queiroz, Dmitry Turaev</div>
+        <div class="pub-journal">Communications in Mathematical Physics (2023)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://opus.hs-osnabrueck.de/frontdoor/deliver/index/docId/6369/file/ExponentiallyLong.pdf" target="_blank">Exponentially Long Transient Time to Synchronization of Coupled Chaotic Circle Maps in Dense Random Networks</a></div>
+        <div class="pub-authors">Hans Muller Mendonca, Ralf Tönjes, Tiago Pereira</div>
+        <div class="pub-journal">Entropy (2023)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2022</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://www.nature.com/articles/s41467-022-32282-4" target="_blank">Emergent hypernetworks in weakly coupled oscillators</a></div>
+        <div class="pub-authors">Eddie Nijholt, Jorge Luis Ocampo-Espindola, Deniz Eroglu, István Z Kiss, Tiago Pereira</div>
+        <div class="pub-journal">Nature Communications (2022)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S0022039622001243" target="_blank">Absolute stability and absolute hyperbolicity in systems with discrete time-delays</a></div>
+        <div class="pub-authors">Serhiy Yanchuk, Matthias Wolfrum, Tiago Pereira, Dmitry Turaev</div>
+        <div class="pub-journal">Journal of Differential Equations (2022)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S2192440622000016" target="_blank">Robot Dance: A mathematical optimization platform for intervention against COVID-19 in a complex network</a></div>
+        <div class="pub-authors">Luis Gustavo Nonato, Pedro Peixoto, Tiago Pereira, Claudia Sagastizábal, Paulo JS Silva</div>
+        <div class="pub-journal">EURO Journal on Computational Optimization (2022)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://www.thelancet.com/journals/lanam/article/PIIS2667-193X(22)00155-7/fulltext" target="_blank">Prevalence and predictors of anti-SARS-CoV-2 serology in a highly vulnerable population of Rio de Janeiro</a></div>
+        <div class="pub-authors">Lara E Coelho, Paula M Luz et al., Tiago Pereira</div>
+        <div class="pub-journal">The Lancet Regional Health – Americas (2022)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0273425" target="_blank">Quantifying protocols for safe school activities</a></div>
+        <div class="pub-authors">Juliano Genari, Guilherme Tegoni Goedert et al., Tiago Pereira</div>
+        <div class="pub-journal">PLoS ONE (2022)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2021</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://www.pnas.org/doi/full/10.1073/pnas.2104640118" target="_blank">Optimized delay of the second COVID-19 vaccine dose reduces ICU admissions</a></div>
+        <div class="pub-authors">Paulo JS Silva, Claudia Sagastizábal, Luís Gustavo Nonato, Claudio José Struchiner, Tiago Pereira</div>
+        <div class="pub-journal">PNAS (2021)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://iopscience.iop.org/article/10.1088/1361-6544/ac0613" target="_blank">Chimera states through invariant manifold theory</a></div>
+        <div class="pub-authors">Jaap Eldering, Jeroen S.W. Lamb, Tiago Pereira, Edmison Roque dos Santos</div>
+        <div class="pub-journal">Nonlinearity 34, 5344 (2021)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="http://www.cemeai.icmc.usp.br/Reconnect/wp-content/uploads/2021/10/s41467-020-20441-4.pdf" target="_blank">Coherence resonance in influencer networks</a></div>
+        <div class="pub-authors">Ralf Tönjes, Carlos E. Fiore, Tiago Pereira</div>
+        <div class="pub-journal">Nature Communications (2021)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2020</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://sites.icmc.usp.br/tiago/index.html/assets/physrevx.10.021047.pdf" target="_blank">Revealing Dynamics, Communities, and Criticality from Data</a></div>
+        <div class="pub-authors">Deniz Eroglu, Matteo Tanzi, Sebastian van Strien, Tiago Pereira</div>
+        <div class="pub-journal">Physical Review X 10, 021047 (2020)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title">Heterogeneously Coupled Maps: hub dynamics and emergence across connectivity layers</div>
+        <div class="pub-authors">Tiago Pereira, Sebastian van Strien, Matteo Tanzi</div>
+        <div class="pub-journal">Journal of the European Mathematical Society (2020)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2019</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://sites.icmc.usp.br/tiago/index.html/assets/ruschel2019_article_ansiqdelaydifferentialequation.pdf" target="_blank">An SIQ delay differential equations model for disease control via isolation</a></div>
+        <div class="pub-authors">Stefan Ruschel, Tiago Pereira, Serhiy Yanchuk, Lai-Sang Young</div>
+        <div class="pub-journal">Journal of Mathematical Biology (2019)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title">The Effects of Structural Perturbations on the Synchronizability of Diffusive Networks</div>
+        <div class="pub-authors">Camille Poignard, Jan Philipp Pade, Tiago Pereira</div>
+        <div class="pub-journal">Journal of Nonlinear Science (2019)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title">Robustness of ergodic properties of nonautonomous piecewise expanding maps</div>
+        <div class="pub-authors">Matteo Tanzi, Tiago Pereira, Sebastian van Strien</div>
+        <div class="pub-journal">Ergodic Theory and Dynamical Systems (2019)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2018</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title">Synchronization in Networks with Strongly Delayed Couplings</div>
+        <div class="pub-authors">Daniel M. N. Maia, Elbert E. N. Macau, Tiago Pereira, Serhiy Yanchuk</div>
+        <div class="pub-journal">Discrete and Continuous Dynamical Systems – B (2018)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="https://epubs.siam.org/doi/10.1137/17M1124474" target="_blank">Spectra of Laplacian matrices of weighted graphs: structural genericity properties</a></div>
+        <div class="pub-authors">Camille Poignard, Tiago Pereira, Jan Philipp Pade</div>
+        <div class="pub-journal">SIAM Journal of Applied Mathematics (2018)</div>
+      </div>
+    </div>
+
+    <div class="year-label reveal">2017</div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-title"><a href="http://conteudo.icmc.usp.br/pessoas/tiago/index.html/assets/revmodphys.89.045001.pdf" target="_blank">Coupling functions: Universal insights into dynamical interaction mechanisms</a></div>
+        <div class="pub-authors">Tomislav Stankovski, Tiago Pereira, Peter V. E. McClintock, Aneta Stefanovska</div>
+        <div class="pub-journal">Review of Modern Physics 89, 045001 (2017)</div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-title">Synchronization of Chaos and its Applications</div>
+        <div class="pub-authors">Deniz Eroglu, Jeroen Lamb, Tiago Pereira</div>
+        <div class="pub-journal">Contemporary Physics 58, 207–243 (2017)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
