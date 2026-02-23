@@ -1,6 +1,5 @@
 /* ════════════════════════════════════════
-   ReconNeCT — Global JS
-   Injects: status banner, nav, footer, canvas, reveal
+   ReconNeCT — Global JS (Light Theme)
    ════════════════════════════════════════ */
 
 (function () {
@@ -68,7 +67,7 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  /* ─── 7. CANVAS ANIMATION ─── */
+  /* ─── 7. CANVAS — light, discrete, gray/blue ─── */
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, nodes, mouse = { x: -9999, y: -9999 };
@@ -79,50 +78,57 @@
   }
 
   function initNodes() {
-    nodes = Array.from({ length: 55 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      r:  Math.random() * 3 + 1.5,
+    nodes = Array.from({ length: 45 }, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r:  Math.random() * 2.5 + 1,
     }));
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+
+    // edges — light gray/blue, very subtle
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x;
         const dy = nodes[i].y - nodes[j].y;
-        const d  = Math.sqrt(dx*dx + dy*dy);
-        if (d < 160) {
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < 150) {
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(91,110,245,${(1 - d/160) * 0.25})`;
+          ctx.strokeStyle = `rgba(100,120,200,${(1 - d / 150) * 0.12})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
       }
     }
+
+    // nodes — small, muted blue-gray
     nodes.forEach(n => {
       const dx   = n.x - mouse.x;
       const dy   = n.y - mouse.y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const glow = dist < 120 ? 1 - dist/120 : 0;
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r + glow * 3, 0, Math.PI * 2);
-      ctx.fillStyle = glow > 0
-        ? `rgba(167,139,250,${0.5 + glow * 0.5})`
-        : `rgba(91,110,245,0.45)`;
-      ctx.fill();
-      if (glow > 0.2) {
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const near = dist < 100 ? 1 - dist / 100 : 0;
+
+      // subtle glow ring on hover
+      if (near > 0.1) {
         ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r + glow * 10, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(91,110,245,${glow * 0.15})`;
+        ctx.arc(n.x, n.y, n.r + near * 8, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(67,86,224,${near * 0.12})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r + near * 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = near > 0
+        ? `rgba(67,86,224,${0.25 + near * 0.35})`
+        : `rgba(160,170,200,0.35)`;
+      ctx.fill();
     });
   }
 
@@ -142,15 +148,14 @@
   resize(); initNodes(); loop();
 
   /* ─── 8. SCROLL REVEAL ─── */
-  const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
         io.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 })();
