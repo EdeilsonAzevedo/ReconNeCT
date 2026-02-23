@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities — ReconNeCT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .tab-bar {
+      display: flex; border: 1px solid var(--border); margin-bottom: 3rem;
+    }
+    .tab-btn {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.8rem 1.8rem;
+      background: none; border: none; border-right: 1px solid var(--border);
+      color: var(--muted); cursor: pointer; transition: 0.2s; white-space: nowrap;
+    }
+    .tab-btn:last-child { border-right: none; }
+    .tab-btn.active { background: var(--card); color: var(--accent); }
+    .tab-btn:hover:not(.active) { color: var(--white); background: rgba(91,110,245,0.06); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .act-year {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 0.7rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .act-year::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .act-list { display: flex; flex-direction: column; gap: 1px; }
+    .act-item {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.2rem 1.6rem; transition: border-color 0.25s, background 0.25s;
+    }
+    .act-item:hover { border-color: rgba(91,110,245,0.35); background: #0f1530; }
+    .act-item strong { color: var(--white); font-size: 0.92rem; display: block; margin-bottom: 0.3rem; }
+    .act-item p { font-size: 0.85rem; margin: 0; }
+    .act-item a { color: var(--accent2); transition: color 0.2s; }
+    .act-item a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .tab-bar { flex-direction: column; }
+      .tab-btn { border-right: none; border-bottom: 1px solid var(--border); }
+      .tab-btn:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <p class="section-tag">Events & Learning</p>
+    <h1>Activities</h1>
+  </div>
+
+  <div class="content-area">
+
+    <div class="tab-bar reveal">
+      <button class="tab-btn active" onclick="switchTab(this,'reading')">Reading Groups</button>
+      <button class="tab-btn"        onclick="switchTab(this,'workshops')">Workshops</button>
+      <button class="tab-btn"        onclick="switchTab(this,'seminars')">Internal Seminars</button>
+    </div>
+
+    <!-- READING GROUPS -->
+    <div id="tab-reading" class="tab-content active">
+      <div class="act-year">2024</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Saturday Meetings for Real Analysis</strong><p>Weekly on Saturdays — <a href="https://www.cemeai.icmc.usp.br/Reconnect/realanalysis/" target="_blank">Session page</a></p></div>
+        <div class="act-item reveal"><strong>Reading Group on Random Interval Diffeomorphisms</strong><p>Weekly on Wednesdays — Lecture Notes available</p></div>
+      </div>
+
+      <div class="act-year">2023</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Reading Group on Transfer Operators</strong></div>
+        <div class="act-item reveal"><strong>Reading Group on Iterated Function Systems</strong><p>Weekly on Wednesdays — <a href="http://www.cemeai.icmc.usp.br/Reconnect/wp-content/uploads/2024/08/Iterated-function-system-study-group.pdf" target="_blank">Lecture Notes</a></p></div>
+      </div>
+
+      <div class="act-year">2022</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Reading Group on Kernel Flow</strong><p><a href="http://www.cemeai.icmc.usp.br/Reconnect/wp-content/uploads/2024/08/Kernel_Flow_Tutorial.pdf" target="_blank">Lecture Notes</a></p></div>
+      </div>
+
+      <div class="act-year">2021</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Reading Group on Transfer Operators</strong><p>Jan 6 – July 5, weekly on Wednesdays. Main reference: Omri Sarig's lecture notes. <a href="http://www.cemeai.icmc.usp.br/Reconnect/wp-content/uploads/2024/08/TransfOpRdGr_Notes_compressed.pdf" target="_blank">Notes</a></p></div>
+      </div>
+
+      <div class="act-year">2019</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Random Graphs and Complex Networks</strong><p>Sep 16 – Dec 4, weekly. Remco van der Hofstad — <a href="https://www.win.tue.nl/~rhofstad/NotesRGCN.pdf" target="_blank">Notes</a></p></div>
+      </div>
+
+      <div class="act-year">2018</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Phase Oscillators with Sinusoidal Coupling</strong><p>April – May. I. Stewart — <a href="https://doi.org/10.1142/S0218127411029446" target="_blank">Paper</a></p></div>
+      </div>
+    </div>
+
+    <!-- WORKSHOPS -->
+    <div id="tab-workshops" class="tab-content">
+      <div class="act-year">2024</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Fractals: Draw Your Own!</strong><p>August 2 — <a href="https://www.cemeai.icmc.usp.br/Reconnect/fractals2024/" target="_blank">Event page</a></p></div>
+        <div class="act-item reveal"><strong>A Dynamical Day</strong><p>April 28 — <a href="http://www.cemeai.icmc.usp.br/Reconnect/adynamicalday24/" target="_blank">Event page</a></p></div>
+        <div class="act-item reveal"><strong>Etapa Sigma Camp</strong><p>January — <a href="https://cloud.conteudo.sistemaetapa.com.br/sigmacampbrazil" target="_blank">Event page</a></p></div>
+      </div>
+
+      <div class="act-year">2020</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Webinar: A Matemática em Tempos de Crise</strong><p>August 8 — <a href="https://www.youtube.com/watch?v=Om9yHN55qs4" target="_blank">Watch on YouTube</a></p></div>
+        <div class="act-item reveal"><strong>1º Workshop Matemática e Indústria — Revelando Transições Críticas a partir de Dados</strong><p>February 19 — <a href="https://www.youtube.com/watch?v=dyXNqpGBUtE" target="_blank">Watch on YouTube</a></p></div>
+      </div>
+
+      <div class="act-year">2019</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Coffee and Science with Professor Tiago Pereira</strong><p>September 11, Oxford — <a href="https://oxfordbrazilsociety.home.blog/coffee-and-science/" target="_blank">Read more</a></p></div>
+        <div class="act-item reveal"><strong>Workshop on Higher-order Interaction Networks: Dynamics, Structure, Data</strong><p>September 9–11 — <a href="https://www.maths.ox.ac.uk/groups/networks/events/higher-order-interaction-workshop" target="_blank">Event page</a></p></div>
+        <div class="act-item reveal"><strong>32º CBM — Controle de Doenças Infecciosas por Isolamento</strong><p>August 5 — <a href="https://www.youtube.com/watch?v=jNrKiG0SiKI" target="_blank">Watch on YouTube</a></p></div>
+        <div class="act-item reveal"><strong>School and Workshop on Patterns of Synchrony: Chimera States and Beyond</strong><p>May 6–19 — <a href="http://indico.ictp.it/event/8656" target="_blank">ICTP page</a></p></div>
+      </div>
+
+      <div class="act-year">2018</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>São Paulo Dynamical Systems Days</strong><p>October 24–26 — <a href="http://www.cemeai.icmc.usp.br/Reconnect/dynamical-systems/" target="_blank">Event page</a></p></div>
+        <div class="act-item reveal"><strong>Meeting on Network Inference and Random Dynamics</strong><p>May 2–3 — <a href="http://www.cemeai.icmc.usp.br/Reconnect/meeting-on-network-inference-and-random-dynamics/" target="_blank">Event page</a></p></div>
+        <div class="act-item reveal"><strong>One Day of Network Dynamics</strong><p>February 9 — Imperial College London</p></div>
+      </div>
+    </div>
+
+    <!-- SEMINARS -->
+    <div id="tab-seminars" class="tab-content">
+      <div class="act-year">2024</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>March 18 — Herbert Milton Maquera</strong><p>Self-Consistent Transfer Operator for Heterogeneous Networks</p></div>
+        <div class="act-item reveal"><strong>May — Cristiana Nogueira Couto</strong><p>Perron-Frobenius Theorem</p></div>
+      </div>
+
+      <div class="act-year">2023</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>October — Gabriel Silva Lucidio</strong><p>Averaging Theory for Hamiltonian Systems</p></div>
+        <div class="act-item reveal"><strong>June 13–16 — Herbert Milton Maquera</strong><p>Mean-field coupling of identical expanding circle maps (Sélley et al.)</p></div>
+      </div>
+
+      <div class="act-year">2022</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>September — Narcicegi Kiran</strong><p>The restricted isometry property and its implications for compressed sensing (Candes)</p></div>
+        <div class="act-item reveal"><strong>June 7–28 — Herbert Milton Maquera</strong><p>Statistical properties of dynamics: Introduction to the functional analytic approach (Galatolo)</p></div>
+        <div class="act-item reveal"><strong>February 8–28 — Herbert Milton Maquera</strong><p>Synchronization for Networks of Globally Coupled Maps in the Thermodynamic Limit (Sélley et al.)</p></div>
+      </div>
+
+      <div class="act-year">2021</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Gabriel Silva Lucidio</strong><p>Lectures on Mixing and Exactness for the Gauss Map</p></div>
+        <div class="act-item reveal"><strong>April 21 – June 2 — Eddie Nijholt</strong><p>Mini course on quiver symmetry in centre manifold reduction — <a href="http://eddienijholt.nl/courses.html" target="_blank">Course page</a></p></div>
+        <div class="act-item reveal"><strong>KHAS-USP Dynamical Systems Seminars — April 27, ongoing</strong><p>Joint seminars every 2 weeks with <a href="https://nodds.khas.edu.tr/" target="_blank">Nodds Lab</a> (Deniz Eroglu, KHAS University)</p></div>
+      </div>
+
+      <div class="act-year">2020</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>April 6 – June 15 — Zheng Bian</strong><p>Mini course: Topics in Random Dynamical Systems — <a href="http://www.cemeai.icmc.usp.br/Reconnect/mini-course-topics-in-random-dynamical-systems/" target="_blank">Page</a></p></div>
+      </div>
+
+      <div class="act-year">2019</div>
+      <div class="act-list">
+        <div class="act-item reveal"><strong>Oct 22 — Robert Ronge</strong><p>Low dimensional description of excitable units with repulsive coupling</p></div>
+        <div class="act-item reveal"><strong>Oct 22 — Hans Muller</strong><p>Normal forms and Hopf Bifurcation with numerical aspects under AUTO software</p></div>
+        <div class="act-item reveal"><strong>Oct 15–22 — Zheng Bian</strong><p>Invariant Foliations</p></div>
+        <div class="act-item reveal"><strong>Oct 15 — Zeray H. Gebrezabher</strong><p>Reconstruction of Phase Oscillators from Data</p></div>
+        <div class="act-item reveal"><strong>Sep 25 — Asrat Belachew</strong><p>Center Manifold are not C∞</p></div>
+        <div class="act-item reveal"><strong>Jun 4 — Edmilson Roque</strong><p>Sparse reconstruction: a minimization problem</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function switchTab(btn, id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
