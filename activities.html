@@ -17,7 +17,7 @@
     }
     .tab-btn:last-child { border-right: none; }
     .tab-btn.active { background: var(--card); color: var(--accent); }
-    .tab-btn:hover:not(.active) { color: var(--white); background: rgba(91,110,245,0.06); }
+    .tab-btn:hover:not(.active) { color: var(--text); background: var(--bg2); }
 
     .tab-content { display: none; }
     .tab-content.active { display: block; }
@@ -35,11 +35,11 @@
       background: var(--card); border: 1px solid var(--border);
       padding: 1.2rem 1.6rem; transition: border-color 0.25s, background 0.25s;
     }
-    .act-item:hover { border-color: rgba(91,110,245,0.35); background: #0f1530; }
-    .act-item strong { color: var(--white); font-size: 0.92rem; display: block; margin-bottom: 0.3rem; }
+    .act-item:hover { border-color: var(--border2); background: #ede9f8; }
+    .act-item strong { color: var(--text); font-size: 0.92rem; display: block; margin-bottom: 0.3rem; }
     .act-item p { font-size: 0.85rem; margin: 0; }
-    .act-item a { color: var(--accent2); transition: color 0.2s; }
-    .act-item a:hover { color: var(--white); }
+    .act-item a { color: var(--accent); transition: color 0.2s; }
+    .act-item a:hover { color: var(--accent2); }
 
     @media (max-width: 600px) {
       .tab-bar { flex-direction: column; }

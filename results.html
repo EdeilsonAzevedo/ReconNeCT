@@ -18,7 +18,7 @@
       background: var(--bg); position: relative;
     }
     .timeline-block:last-child { border-right: none; }
-    .timeline-block.current { background: rgba(67,86,224,0.07); border-color: rgba(67,86,224,0.3); }
+    .timeline-block.current { background: rgba(70,56,142,0.07); border-color: rgba(70,56,142,0.3); }
     .tl-year {
       font-family: 'Space Mono', monospace; font-size: 0.62rem;
       letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.5rem;
@@ -75,12 +75,12 @@
       width: 3px; background: var(--accent2);
       transform: scaleY(0); transform-origin: top; transition: transform 0.35s;
     }
-    .achievement:hover { border-color: rgba(124,106,247,0.35); background: #f0f2f9; }
+    .achievement:hover { border-color: var(--border2); background: #ede9f8; }
     .achievement:hover::before { transform: scaleY(1); }
 
     .ach-icon {
       width: 52px; height: 52px; border-radius: 0;
-      background: rgba(67,86,224,0.1); border: 1px solid var(--border);
+      background: rgba(70,56,142,0.08); border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
       color: var(--accent2); flex-shrink: 0;
     }
@@ -120,7 +120,7 @@
       width: 100%; height: 2px; background: var(--accent);
       transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
     }
-    .future-card:hover { background: #f0f2f9; }
+    .future-card:hover { background: #ede9f8; }
     .future-card:hover::before { transform: scaleX(1); }
     .future-card h3 { color: var(--text); margin-bottom: 0.7rem; font-size: 1rem; }
     .future-card p  { font-size: 0.87rem; }

@@ -100,7 +100,7 @@
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(100,120,200,${(1 - d / 150) * 0.12})`;
+          ctx.strokeStyle = `rgba(70,56,142,${(1 - d / 150) * 0.10})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -118,7 +118,7 @@
       if (near > 0.1) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r + near * 8, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(67,86,224,${near * 0.12})`;
+        ctx.strokeStyle = `rgba(70,56,142,${near * 0.12})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -126,8 +126,8 @@
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r + near * 1.5, 0, Math.PI * 2);
       ctx.fillStyle = near > 0
-        ? `rgba(67,86,224,${0.25 + near * 0.35})`
-        : `rgba(160,170,200,0.35)`;
+        ? `rgba(70,56,142,${0.25 + near * 0.35})`
+        : `rgba(130,115,170,0.28)`;
       ctx.fill();
     });
   }
